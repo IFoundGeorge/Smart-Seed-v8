@@ -1,0 +1,10 @@
+[
+  {
+    "type": "sqlite",
+    "path": "c:\\Users\\Fujitsu\\Documents\\Cyrus Coding\\smart seed\\database\\farmers.db"
+  },
+  {
+    "type": "sqlite",
+    "path": "e:\\Coding Projects\\html\\Smart-Seed-v8-main\\database\\farmers.db"
+  }
+]

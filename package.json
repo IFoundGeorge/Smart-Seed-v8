@@ -1,0 +1,23 @@
+{
+  "name": "smart-seed",
+  "version": "1.0.0",
+  "description": "Smart Seed System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^3.1.0",
+    "chart.js": "^4.4.8",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsdom": "^26.0.0",
+    "node-cron": "^3.0.3",
+    "path": "^0.12.7",
+    "smart-seed": "file:",
+    "sqlite3": "^5.1.7",
+    "startbootstrap-sb-admin-2": "^4.1.4"
+  }
+}

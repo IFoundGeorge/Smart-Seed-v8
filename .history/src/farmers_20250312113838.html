@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Smart Seed</title>
+
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom fonts for this template-->
+    <link href="../node_modules/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../node_modules/startbootstrap-sb-admin-2/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
+</head>
+
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <img src="../img/smartseed_logo.jpg" alt="Smart Seed Logo">
+                <div class="sidebar-brand-text mx-3">Smart Seed</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Nav Item - Farmers -->
+            <li class="nav-item active">
+                <a class="nav-link" href="farmers.html">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Farmers</span></a>
+            </li>
+
+            <!-- Nav Item - Info -->
+            <li class="nav-item">
+                <a class="nav-link" href="info.html">
+                    <i class="fas fa-fw fa-info-circle"></i>
+                    <span>Info</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+               <!-- Content Wrapper -->
+               <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+    
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+    
+                        
+    
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+    
+                            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                            <li class="nav-item dropdown no-arrow d-sm-none">
+                                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-search fa-fw"></i>
+                                </a>
+                                <!-- Dropdown - Messages -->
+                                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                    aria-labelledby="searchDropdown">
+                                    <form class="form-inline mr-auto w-100 navbar-search">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control bg-light border-0 small"
+                                                placeholder="Search for..." aria-label="Search"
+                                                aria-describedby="basic-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+    
+                            
+    
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                                    <img class="img-profile rounded-circle"
+                                        src="../img/undraw_profile.svg">
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+    
+                        </ul>
+    
+                    </nav>
+                    <!-- End of Topbar -->
+
+
+                        <!-- Start of Table -->
+                    <div class="container-fluid">
+                        <!-- Page Heading -->
+                        <h1 class="h3 mb-2 text-gray-800">Farmers</h1>
+                        <p class="mb-4">The table provides an overview of registered farmers, including their name, 
+                            location, farm size, crop type, and contact details.</p>
+                        <!-- TABLE  -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Farmers Data</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Location</th>
+                                                <th>Contact Details</th>
+                                                <th>Crop Type</th>
+                                                <th>Farm Size (Hectares) </th>
+                                                <th>Average Yield (Metric Tons)</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Location</th>
+                                                <th>Contact Details</th>
+                                                <th>Crop Type</th>
+                                                <th>Farm Size (Hectares) </th>
+                                                <th>Average Yield (Metric Tons)</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <!-- Data will be populated here from the database -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                    <!-- End of Table -->
+
+                    <!-- Action Buttons -->
+                    <div class="container-fluid">
+                        <div class="row mb-4">
+                            <div class="col">
+                                <button class="btn btn-success" onclick="addFarmer()">Add Farmer</button>
+                                <button class="btn btn-primary" onclick="editFarmer()">Edit Farmer</button>
+                                <button class="btn btn-warning" onclick="deactivateFarmer()">Deactivate Farmer</button>
+                                <button class="btn btn-warning" onclick="activateFarmer()">Activate Farmer</button>
+                                <button class="btn btn-info" onclick="printFarmers()">Print</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        function addFarmer() {
+                            let modal = new bootstrap.Modal(document.getElementById("farmerModal"));
+                            modal.show();
+                        }
+
+                        function saveFarmer() {
+                            // Gather form values.
+                            const farmerId = $("#farmerId").val();
+                            const farmerData = {
+                                name: $("#farmerName").val(),
+                                location: $("#farmerLocation").val(),
+                                crop: $("#farmerCrop").val(),
+                                phone_number: $("#farmerContact").val(),
+                                farm_size: $("#farmSize").val(),
+                                average_yield: $("#averageYield").val()
+                            };
+
+                            // Determine if we're adding a new farmer or editing an existing one.
+                            if (farmerId && farmerId.trim() !== "") {
+                                // Editing existing farmer - use PUT.
+                                fetch(`http://localhost:3000/api/farmers/${farmerId}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(farmerData)
+                                })
+                                .then(response => {
+                                if (!response.ok) {
+                                    throw new Error("Server responded with " + response.status);
+                                }
+                                return response.json();
+                                })
+                                .then(data => {
+                                console.log("Farmer updated:", data);
+                                // Optionally, refresh the table data and reset the form/modal.
+                                location.reload();
+                                })
+                                .catch(error => console.error("Error updating farmer:", error));
+                            } else {
+                                // Adding new farmer - use POST.
+                                fetch('http://localhost:3000/api/farmers', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(farmerData)
+                                })
+                                .then(response => {
+                                if (!response.ok) {
+                                    throw new Error("Server responded with " + response.status);
+                                }
+                                return response.json();
+                                })
+                                .then(data => {
+                                console.log("Farmer added:", data);
+                                // Optionally, refresh the table data and reset the form/modal.
+                                location.reload();
+                                })
+                                .catch(error => console.error("Error adding farmer:", error));
+                            }
+                            }
+
+                        // Function to edit a farmer.
+                        function editFarmer() {
+                        if (!window.selectedFarmer) {
+                            alert("Please select a farmer to edit.");
+                            return;
+                        }
+                        
+                        // Populate form fields with selected farmer's data.
+                        document.getElementById("farmerId").value = window.selectedFarmer.id;
+                        document.getElementById("farmerName").value = window.selectedFarmer.Name;
+                        document.getElementById("farmerLocation").value = window.selectedFarmer.Location;
+                        document.getElementById("farmerCrop").value = window.selectedFarmer.Crop_Type || '';
+                        document.getElementById("farmerContact").value = window.selectedFarmer.Phone_Number || '';
+                        document.getElementById("farmSize").value = window.selectedFarmer.Farm_Size || '';
+                        if (document.getElementById("averageYield")) {
+                            document.getElementById("averageYield").value = window.selectedFarmer.Average_Yield || '';
+                        }
+                        
+                        // Open the modal for editing.
+                        let modal = new bootstrap.Modal(document.getElementById("farmerModal"));
+                        modal.show();
+                        }
+                        // Function to set the selected farmer from the clicked row.
+                        function setSelectedFarmer(row) {
+                            // Remove 'selected' class from all rows.
+                            $('#dataTable tbody tr').removeClass('selected');
+                            // Add 'selected' class to the clicked row.
+                            $(row).addClass('selected');
+                            
+                            // Get the ID from the clicked row.
+                            const id = $(row).data('id');
+                            
+                            // Find the farmer object from the global farmersData array.
+                            const selected = window.farmersData.find(f => f.id == id);
+                            
+                            if (selected) {
+                                window.selectedFarmer = selected;
+                                console.log("Selected farmer:", window.selectedFarmer);
+                            } else {
+                                window.selectedFarmer = null;
+                            }
+                        }
+
+                        // Function to edit a farmer using the selected farmer.
+                        function editFarmer() {
+                            if (!window.selectedFarmer) {
+                                alert("Please select a farmer to edit.");
+                                return;
+                            }
+                            // Prevent editing if farmer is deactivated.
+                            if (window.selectedFarmer.deactivated) {
+                                alert("This farmer is deactivated and cannot be edited.");
+                                return;
+                            }
+                            
+                            // Populate the modal form with selected farmer's data.
+                            document.getElementById("farmerId").value = window.selectedFarmer.id;
+                            document.getElementById("farmerName").value = window.selectedFarmer.Name;
+                            document.getElementById("farmerLocation").value = window.selectedFarmer.Location;
+                            document.getElementById("farmerCrop").value = window.selectedFarmer.Crop_Type || '';
+                            document.getElementById("farmerContact").value = window.selectedFarmer.Phone_Number || '';
+                            document.getElementById("farmSize").value = window.selectedFarmer.Farm_Size || '';
+                            if (document.getElementById("averageYield")) {
+                                document.getElementById("averageYield").value = window.selectedFarmer.Average_Yield || '';
+                            }
+                            
+                            let modal = new bootstrap.Modal(document.getElementById("farmerModal"));
+                            modal.show();
+                            } 
+
+                        // Function to deactivate a farmer.
+                        function deactivateFarmer() {
+                            if (!window.selectedFarmer) {
+                                alert("Please select a farmer to deactivate.");
+                                return;
+                            }
+                            
+                            // Show deactivation confirmation modal.
+                            let deactivateModal = new bootstrap.Modal(document.getElementById("deactivateModal"));
+                            deactivateModal.show();
+
+                            document.getElementById("confirmDeactivateBtn").onclick = function() {
+                                // Ensure the ID is a number.
+                                const farmerId = parseInt(window.selectedFarmer.id, 10);
+                                
+                                fetch(`http://localhost:3000/api/farmers/${farmerId}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                // Send deactivated as true (server should convert it to 1).
+                                body: JSON.stringify({ deactivated: true })
+                                })
+                                .then(response => {
+                                if (!response.ok) {
+                                    throw new Error("Failed to update farmer status");
+                                }
+                                return response.json();
+                                })
+                                .then(data => {
+                                // Mark farmer as deactivated in the global object.
+                                window.selectedFarmer.deactivated = true;
+                                // Add the 'deactivated' class to the row.
+                                $('#dataTable tbody tr.selected').addClass('deactivated');
+                                alert("Farmer deactivated.");
+                                deactivateModal.hide();
+                                })
+                                .catch(error => {
+                                console.error("Error deactivating farmer:", error);
+                                alert("Error deactivating farmer.");
+                                deactivateModal.hide();
+                                });
+                            };
+                            }
+
+                            function activateFarmer() {
+                            if (!window.selectedFarmer) {
+                                alert("Please select a farmer to activate.");
+                                return;
+                            }
+                            
+                            // Check if the selected farmer is already active.
+                            if (!(window.selectedFarmer.deactivated == 1 || window.selectedFarmer.deactivated === "1")) {
+                                alert("This farmer is already active.");
+                                return;
+                            }
+                            
+                            // Confirm with the user.
+                            if (!confirm("Do you want to activate this account?")) {
+                                return;
+                            }
+                            
+                            const farmerId = parseInt(window.selectedFarmer.id, 10);
+                            
+                            // Send PUT request to update the farmer's deactivated status to 0.
+                            fetch(`http://localhost:3000/api/farmers/${farmerId}`, {
+                                method: 'PUT',
+                                headers: {
+                                'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ deactivated: 0 })
+                            })
+                            .then(response => {
+                                if (!response.ok) {
+                                throw new Error("Failed to update farmer status");
+                                }
+                                return response.json();
+                            })
+                            .then(data => {
+                                // Update local data: mark the farmer as active.
+                                window.selectedFarmer.deactivated = 0;
+                                // Remove the 'deactivated' class from the corresponding table row.
+                                $(`#dataTable tbody tr[data-id="${farmerId}"]`).removeClass("deactivated");
+                                alert("Farmer activated.");
+                            })
+                            .catch(error => {
+                                console.error("Error activating farmer:", error);
+                                alert("Error activating farmer.");
+                            });
+                            }
+                       
+                            function toggleFarmerStatus() {
+                            if (!window.selectedFarmer) {
+                                alert("Please select a farmer.");
+                                return;
+                            }
+
+                            const farmerId = parseInt(window.selectedFarmer.id, 10);
+                            const isCurrentlyDeactivated = window.selectedFarmer.deactivated;
+
+                            // Show appropriate confirmation modal
+                            let confirmText = isCurrentlyDeactivated
+                                ? "Do you want to reactivate this account?"
+                                : "Do you want to deactivate this account?";
+                            if (!confirm(confirmText)) return;
+
+                            // Update the server
+                            fetch(`http://localhost:3000/api/farmers/${farmerId}`, {
+                                method: 'PUT',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ deactivated: !isCurrentlyDeactivated })
+                            })
+                            .then(response => {
+                                if (!response.ok) throw new Error("Failed to update farmer status");
+                                return response.json();
+                            })
+                            .then(data => {
+                                // Update the local state
+                                window.selectedFarmer.deactivated = !isCurrentlyDeactivated;
+                                const row = $(`#dataTable tbody tr[data-id="${farmerId}"]`);
+                                if (window.selectedFarmer.deactivated) {
+                                row.addClass('deactivated');
+                                } else {
+                                row.removeClass('deactivated');
+                                }
+                                alert("Farmer status updated.");
+                            })
+                            .catch(error => {
+                                console.error("Error updating farmer status:", error);
+                                alert("Error updating farmer status.");
+                            });
+                            }
+
+                        function printFarmers() {
+                            // Print logic here
+                            window.print();
+                        }
+                    </script>
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="farmerModal" tabindex="-1" aria-labelledby="farmerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="farmerModalLabel">Add Farmer</h5>
+                    <!-- Close button inside the modal header -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Farmer Input Form -->
+                    <form id="farmerForm">
+                        <input type="hidden" id="farmerId" value="">
+                        <div class="mb-3">
+                            <label for="farmerName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="farmerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="farmerLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="farmerLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="farmerCrop" class="form-label">Crop Type</label>
+                            <input type="text" class="form-control" id="farmerCrop" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="farmerContact" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="farmerContact" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="farmSize" class="form-label">Farm Size (Hectares)</label>
+                            <input type="number" class="form-control" id="farmSize" min="0" step="0.01" required>
+                        </div>
+                        <!-- New Average Yield Input -->
+                        <div class="mb-3">
+                            <label for="averageYield" class="form-label">Average Yield</label>
+                            <input type="number" class="form-control" id="averageYield" min="0" step="0.01" required>
+                        </div>
+                    </form>                    
+                </div>
+                <div class="modal-footer">
+                    <!-- Fixed Close Button -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="saveFarmer()">Save Farmer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deactivation Confirmation Modal -->
+    <div class="modal fade" id="deactivateModal" tabindex="-1" aria-labelledby="deactivateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="deactivateModalLabel">Deactivate Farmer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            Do you want to deactivate this account?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            <button type="button" class="btn btn-danger" id="confirmDeactivateBtn">Yes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+  
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery should be loaded first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery Easing Plugin -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- DataTables (from CDN or local vendor folder) -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Custom Admin Dashboard Scripts -->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Custom DataTable Demo Script -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>

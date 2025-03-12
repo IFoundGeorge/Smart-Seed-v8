@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form with Custom CAPTCHA</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha1/0.7.0/sha1.min.js"></script>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <h1 class="title">Smart Seed</h1>
+            <form class="login-form" onsubmit="loginUser(event)">
+                <input type="email" id="login-email" placeholder="Email" required/>
+                <input type="password" id="login-password" placeholder="Password" required/>
+                
+                <!-- CAPTCHA Section -->
+                <div class="captcha-section">
+                    <input type="checkbox" id="captcha-checkbox" onclick="showCaptchaModal()">
+                    <label for="captcha-checkbox">I'm not a robot</label>
+                </div>
+
+                <button type="submit" id="login-button" disabled>Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CAPTCHA Modal -->
+    <div id="captcha-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCaptchaModal()">&times;</span>
+            <p id="math-problem"></p>
+            <input type="text" id="captcha-answer" placeholder="Your answer">
+            <button onclick="verifyCaptcha()">Submit</button>
+        </div>
+    </div>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
