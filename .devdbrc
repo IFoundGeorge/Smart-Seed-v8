@@ -6,5 +6,9 @@
   {
     "type": "sqlite",
     "path": "e:\\Coding Projects\\html\\Smart-Seed-v8-main\\database\\farmers.db"
+  },
+  {
+    "type": "sqlite",
+    "path": "e:\\Coding Projects\\html\\Smart-Seed-v8-main\\database\\historical_yield.db"
   }
 ]
