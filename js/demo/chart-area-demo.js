@@ -1,4 +1,3 @@
-// Wait until the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Set default font family and font color for Chart.js
   Chart.defaults.global.defaultFontFamily =
@@ -120,11 +119,3 @@ function fetchDataAndUpdateChart() {
     })
     .catch(error => console.error('Error fetching data:', error));
 }
-
-
-  // Initial fetch on page load
-  fetchDataAndUpdateChart();
-
-  // Set interval to update the chart every 2 weeks (14 days)
-  setInterval(fetchDataAndUpdateChart, 14 * 24 * 60 * 60 * 1000); // 14 days in milliseconds
-});
